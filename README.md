@@ -29,6 +29,12 @@ typst compile main.typ output/resume.pdf
 make build
 ```
 
+快速打开本地预览：
+
+```bash
+make preview
+```
+
 也可以监听改动：
 
 ```bash
@@ -40,6 +46,8 @@ typst watch main.typ output/resume.pdf
 ```bash
 make watch
 ```
+
+推荐工作流：先运行 `make preview` 打开 PDF，再在另一个终端运行 `make watch`。之后每次保存 `.typ` 文件，Typst 都会自动重新生成 `output/resume.pdf`。macOS 上建议用 Skim 打开 PDF，它会自动刷新；Preview 有时需要重新聚焦或重新打开。
 
 ## Typst Web 导入
 
@@ -63,6 +71,8 @@ main.typ
 
 - 改姓名/电话/邮箱/GitHub：编辑 `data.typ`
 - 改主题色/字号/页边距：编辑 `theme.typ`
+- 改同一 bullet 折行间距：编辑 `theme.typ` 里的 `leading_ratio`
+- 改不同 bullet 之间间距：编辑 `theme.typ` 里的 `list_item_spacing_ratio`
 - 改 header/经历条目样式：编辑 `components.typ`
 - 改简历正文：编辑 `content/ai-infra.typ`
 

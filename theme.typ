@@ -35,12 +35,14 @@
 // Vertical rhythm.
 // `em` values scale with the surrounding text, which keeps spacing stable
 // when you tune the base font size.
-#let leading_ratio = 0.50
+#let leading_ratio = 0.56
+#let list_item_spacing_ratio = 0.34
 #let section_before_ratio = 0.46
 #let section_after_ratio = 0.24
 #let entry_after_ratio = 0.34
 
 #let line_leading = leading_ratio * 1em
+#let list_item_spacing = list_item_spacing_ratio * 1em
 #let section_before = section_before_ratio * 1em
 #let section_after = section_after_ratio * 1em
 #let entry_after = entry_after_ratio * 1em

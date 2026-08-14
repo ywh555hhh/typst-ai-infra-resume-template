@@ -34,6 +34,7 @@
   marker: [•],
   indent: 0.75em,
   body-indent: 0.35em,
+  spacing: list_item_spacing,
 )
 
 #show link: it => text(fill: accent, underline(it.body))
