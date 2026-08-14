@@ -19,16 +19,33 @@
 
 #let page_margin = (x: 1.12cm, y: 0.95cm)
 
-#let base_size = 8.35pt
-#let small_size = 7.45pt
-#let tiny_size = 7.0pt
-#let name_size = 17.2pt
-#let section_size = 9.0pt
+// Typography scale.
+// Change `base_size` first; the rest follows from readable ratios.
+#let base_size = 8.4pt
+#let small_ratio = 0.90
+#let tiny_ratio = 0.84
+#let section_ratio = 1.12
+#let name_ratio = 2.05
 
-#let line_leading = 0.47em
-#let section_before = 0.52em
-#let section_after = 0.28em
-#let entry_after = 0.43em
+#let small_size = base_size * small_ratio
+#let tiny_size = base_size * tiny_ratio
+#let section_size = base_size * section_ratio
+#let name_size = base_size * name_ratio
 
-#let thin_rule = 0.36pt
-#let header_rule = 0.72pt
+// Vertical rhythm.
+// `em` values scale with the surrounding text, which keeps spacing stable
+// when you tune the base font size.
+#let leading_ratio = 0.50
+#let section_before_ratio = 0.46
+#let section_after_ratio = 0.24
+#let entry_after_ratio = 0.34
+
+#let line_leading = leading_ratio * 1em
+#let section_before = section_before_ratio * 1em
+#let section_after = section_after_ratio * 1em
+#let entry_after = entry_after_ratio * 1em
+
+// Rules should structure the page without becoming visual noise.
+#let rule_base = 0.36pt
+#let thin_rule = rule_base
+#let header_rule = rule_base * 1.65
