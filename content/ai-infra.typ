@@ -1,18 +1,6 @@
 #import "../components.typ": *
 
 #let resume_content = [
-  #section("教育经历")[
-    #entry(
-      title: "某某大学",
-      org: "计算机科学与技术 / 相关专业",
-      date: "2022.09 - 2026.06",
-      location: "中国",
-    )[
-      - 相关课程：操作系统、计算机体系结构、编译原理、并行计算、深度学习、数据库系统。
-      - 方向定位：AI Infra、LLM 推理系统、CUDA Kernel、深度学习框架工程。
-    ]
-  ]
-
   #section("实习经历")[
     #entry(
       title: "深度学习框架工程实习生",

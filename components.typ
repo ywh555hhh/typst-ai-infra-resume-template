@@ -8,44 +8,94 @@
   }
 ]
 
-#let resume_header(
-  name: "",
-  headline: (),
-  contacts: (),
-) = [
-  #align(center)[
-    #text(size: name_size, weight: "bold", fill: accent)[#name]
+#let icon_size = 0.92em
+#let logo_size = 2.7em
 
-    #v(0.18em)
+#let contact_item(icon, body) = [
+  #box(width: icon_size)[#image(icon, width: icon_size)]
+  #h(0.24em)
+  #body
+]
 
-    #text(size: base_size, fill: text_color)[
-      #join_content(headline, sep: [#h(0.8em) | #h(0.8em)])
+#let school_logo(logo) = [
+  #if logo == none {
+    rect(
+      width: logo_size,
+      height: logo_size,
+      stroke: thin_rule + rule_color,
+      radius: 2pt,
+      inset: 0pt,
+    )[
+      #align(center + horizon)[
+        #text(size: tiny_size, fill: subtle_color)[LOGO]
+      ]
     ]
+  } else {
+    image(logo, width: logo_size, height: logo_size, fit: "contain")
+  }
+]
 
-    #v(0.26em)
+#let school_card(school) = [
+  #grid(
+    columns: (auto, 1fr),
+    gutter: 0.48em,
+    align: (center, left),
+    [#school_logo(school.logo)],
+    [
+      #text(size: small_size, weight: "bold")[#school.degree · #school.school]
+      #v(0.05em)
+      #text(size: tiny_size, fill: muted_color)[#school.major]
+      #v(0.05em)
+      #text(size: tiny_size, fill: subtle_color)[#school.tier · #school.years]
+    ],
+  )
+]
 
-    #text(size: small_size, fill: muted_color)[
-      #join_content(contacts, sep: [#h(0.9em) · #h(0.9em)])
-    ]
-  ]
+#let resume_header(info) = [
+  #grid(
+    columns: (1.18fr, 0.82fr),
+    gutter: 1.2em,
+    align: (left, top),
+    [
+      #text(size: name_size, weight: "bold", fill: accent)[#info.name]
+      #h(0.75em)
+      #text(size: small_size, fill: muted_color)[#info.age 岁 · #info.gender · #info.graduation_year]
 
-  #v(0.33em)
+      #v(0.22em)
+      #text(size: base_size, fill: text_color)[#info.summary]
+
+      #v(0.30em)
+      #text(size: small_size, fill: text_color)[
+        #contact_item("assets/icons/phone.svg")[#info.phone]
+        #h(0.9em)
+        #contact_item("assets/icons/mail.svg")[#link("mailto:" + info.email)[#(info.email)]]
+        #h(0.9em)
+        #contact_item("assets/icons/github.svg")[#link(info.github_url)[#info.github]]
+      ]
+
+      #v(0.22em)
+      #text(size: small_size, fill: muted_color)[
+        #info.cet6 #h(0.85em) · #h(0.85em) #info.internship_duration
+      ]
+    ],
+    [
+      #school_card(info.undergraduate)
+      #v(0.22em)
+      #school_card(info.master)
+    ],
+  )
+
+  #v(0.34em)
   #line(length: 100%, stroke: header_rule + accent)
   #v(0.42em)
 ]
 
 // Page wrapper used by #show. It prints the header, then the document body.
 #let resume_page(
-  name: "",
-  headline: (),
-  contacts: (),
+  basic: (:),
   body,
 ) = [
-  #resume_header(
-    name: name,
-    headline: headline,
-    contacts: contacts,
-  )
+  #resume_header(basic)
 
   #body
 ]

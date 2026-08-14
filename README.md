@@ -69,7 +69,9 @@ main.typ
 
 ## 常见修改
 
-- 改姓名/电话/邮箱/GitHub：编辑 `data.typ`
+- 改姓名/年龄/性别/电话/邮箱/GitHub：编辑 `data.typ` 里的 `basic_info`
+- 改本科/硕士学校、专业、学校层次：编辑 `data.typ` 里的 `basic_info.undergraduate` / `basic_info.master`
+- 放校徽 logo：把图片放进 `assets/`，然后把 `logo: none` 改成类似 `logo: "assets/your-school-logo.png"`
 - 改主题色/字号/页边距：编辑 `theme.typ`
 - 改同一 bullet 折行间距：编辑 `theme.typ` 里的 `leading_ratio`
 - 改不同 bullet 之间间距：编辑 `theme.typ` 里的 `list_item_spacing_ratio`

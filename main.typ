@@ -40,9 +40,7 @@
 #show link: it => text(fill: accent, underline(it.body))
 
 #show: resume_page.with(
-  name: name,
-  headline: headline,
-  contacts: contacts,
+  basic: basic_info,
 )
 
 #resume_content
