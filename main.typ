@@ -12,12 +12,18 @@
 )
 
 #set text(
-  font: body_fonts,
   size: base_size,
   fill: text_color,
   lang: "zh",
   region: "cn",
 )
+
+// Optional local font override:
+// Typst Web and local Typst often expose different font families. Leaving
+// `font` unset avoids noisy "unknown font family" warnings in Typst Web.
+// If you want a specific local font, uncomment the line below and edit
+// `body_fonts` in theme.typ.
+// #set text(font: body_fonts)
 
 #set par(
   leading: line_leading,

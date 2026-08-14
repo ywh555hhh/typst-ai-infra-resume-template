@@ -49,14 +49,15 @@ make watch
 main.typ
 ```
 
-如果网页版提示缺少 macOS 字体，请打开 `theme.typ`，把 `body_fonts` 改成 Typst Web 可用的中文字体，例如：
+默认配置不会强行指定字体，因此 Typst Web 不应该出现 `unknown font family` warning。
+
+如果你想在本地使用指定字体，请打开 `main.typ`，取消这行注释：
 
 ```typst
-#let body_fonts = (
-  "Noto Sans CJK SC",
-  "Noto Serif CJK SC",
-)
+// #set text(font: body_fonts)
 ```
+
+然后在 `theme.typ` 里编辑 `body_fonts`。
 
 ## 常见修改
 

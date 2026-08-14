@@ -7,6 +7,8 @@
 #let rule_color = rgb("#d8dbe5")
 
 #let body_fonts = (
+  // Optional local-only font list. It is not enabled by default in main.typ
+  // because Typst Web may not have these fonts installed.
   "Songti SC",
   "PingFang SC",
   "Heiti SC",
