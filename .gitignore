@@ -1,0 +1,3 @@
+output/*.pdf
+*.log
+.DS_Store
